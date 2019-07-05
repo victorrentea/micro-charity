@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/charity-client/charity-client.iml" filepath="$PROJECT_DIR$/charity-client/charity-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/charity-service/charity-service.iml" filepath="$PROJECT_DIR$/charity-service/charity-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/config-server/config-server.iml" filepath="$PROJECT_DIR$/config-server/config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
     </modules>
   </component>
 </project>

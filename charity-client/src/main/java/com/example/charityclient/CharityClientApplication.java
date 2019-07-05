@@ -22,8 +22,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.context.request.async.DeferredResult;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 @SpringBootApplication
@@ -61,12 +63,22 @@ class CharityController {
 			.collect(Collectors.toList());
 	}
 
+
     @PostMapping("charity")
 	public void createCharity(@RequestBody String name) {
     	log.info("Sending POST");
-//    	source.output().send(MessageBuilder.withPayload(name).build());
-		restTemplate.postForEntity("http://charity-service/charity", new CharityDto(name),
-                String.class);
+    	source.output().send(MessageBuilder.withPayload(name).build());
+//		DeferredResult<String> output = new DeferredResult<>();
+//		CompletableFuture.supplyAsync(
+//				() -> restTemplate.postForEntity("http://charity-service/charity", new CharityDto(name), String.class)
+//                	.getHeaders()
+//					.getLocation()
+//					.getPath())
+//			.thenApply(path -> path.substring(path.lastIndexOf("/") + 1))
+//			.thenAccept(output::setResult)
+//			.thenRun(() -> log.info("Response sent"));
+//		log.info("Thread freed");
+//        return output;
 	}
 }
 

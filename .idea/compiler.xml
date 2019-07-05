@@ -10,6 +10,7 @@
         <module name="eureka-server" />
         <module name="charity-service" />
         <module name="charity-client" />
+        <module name="hero-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -17,6 +18,7 @@
       <module name="charity-service" target="1.8" />
       <module name="config-server" target="1.8" />
       <module name="eureka-server" target="1.8" />
+      <module name="hero-service" target="1.8" />
       <module name="zipkin-server" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -26,6 +28,7 @@
       <module name="charity-service" options="-parameters" />
       <module name="config-server" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
+      <module name="hero-service" options="-parameters" />
       <module name="zipkin-server" options="-parameters" />
     </option>
   </component>

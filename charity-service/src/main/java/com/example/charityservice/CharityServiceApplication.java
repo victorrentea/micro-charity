@@ -28,6 +28,8 @@ import java.util.stream.Stream;
 
 @SpringBootApplication
 @EnableBinding(Sink.class)
+//@EnableZip
+
 public class CharityServiceApplication {
 
     public static void main(String[] args) {

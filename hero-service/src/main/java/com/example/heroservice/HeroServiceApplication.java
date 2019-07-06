@@ -1,6 +1,5 @@
 package com.example.heroservice;
 
-import com.netflix.discovery.converters.Auto;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -11,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.Entity;
-import javax.persistence.EntityNotFoundException;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Optional;
@@ -40,20 +38,19 @@ public class HeroServiceApplication implements CommandLineRunner {
 class HeroController {
 	private final HeroRepository repo;
 
-	@GetMapping
-	public Hero findByName(@RequestParam String name) {
-		return repo.findByName(name).orElseThrow(EntityNotFoundException::new);
+	@GetMapping("id")
+	public Long getByName(@RequestParam String name) {
+		return repo.getByName(name).get().getId();
 	}
 
-	@PostMapping
-	public Long create(@RequestBody Hero hero) { // NEVER get/send Entity instances over REST in Production
-		repo.save(hero);
-		return hero.getId();
-	}
+//	@PostMapping
+//	public Long create(@RequestBody String name) { // NEVER get/send Entity instances over REST in Production
+//		return repo.save(new Hero(name)).getId();
+//	}
 }
 
 interface HeroRepository extends JpaRepository<Hero, Long> {
-	Optional<Hero> findByName(String name);
+	Optional<Hero> getByName(String name);
 }
 
 @Data

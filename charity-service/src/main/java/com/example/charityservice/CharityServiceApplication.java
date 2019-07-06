@@ -90,6 +90,7 @@ class Charity {
     private Long id;
     private String name;
     private LocalDateTime creationTime = LocalDateTime.now();
+    private Long heroId;
 
     private Charity() {
     }

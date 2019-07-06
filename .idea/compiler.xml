@@ -6,11 +6,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="config-server" />
-        <module name="eureka-server" />
-        <module name="charity-service" />
-        <module name="charity-client" />
-        <module name="hero-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
